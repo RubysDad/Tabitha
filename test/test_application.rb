@@ -23,6 +23,6 @@ class TabithaAppTest < Test::Unit::TestCase
     get '/husband'
 
     assert last_response.ok?
-
+    assert_equal rack_mock_session.cookie_jar['husband'], 'Mark says Hi'
   end
 end
