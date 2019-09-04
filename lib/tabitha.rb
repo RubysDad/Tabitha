@@ -5,6 +5,9 @@ require 'tabitha/array'
 module Tabitha
   class Application
     def call(env)
+      # if env['PATH_INFO'] == 'favico.ico'
+      #   return [404, { 'Content-Type' => 'text/html'}, []]
+      # end
       # `echo debug > debug.txt`;
       # [200, { 'Content-Type' => 'text/html' },
       #  ['Hello from the Tabitha Framework']]
