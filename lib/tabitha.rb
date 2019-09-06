@@ -12,10 +12,22 @@ module Tabitha
       # [200, { 'Content-Type' => 'text/html' },
       #  ['Hello from the Tabitha Framework']]
 
+      # Implement error handling
+      # begin
+      # rescue
+      # end
+      #
+      if env['PATH_INFO'] == '/'
+        return Rack::Response.new do |response|
+          response.redirect('/home/index')
+        end
+      end
       klass, action = get_controller_and_action(env)
       controller = klass.new(env)
       text = controller.send(action)
       [200, { 'Content-Type' => 'text/html' }, [text]]
+
+
 
       # @request = Rack::Request.new(env)
       # case @request.path
